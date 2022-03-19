@@ -15,9 +15,10 @@
       </el-form-item>
 
       <el-form-item>
-        <el-select v-model="searchObj.level" clearable placeholder="头衔">
-          <el-option value="1" label="高级讲师"/>
-          <el-option value="2" label="首席讲师"/>
+        <el-select v-model="searchObj.level" clearable placeholder="级别">
+          <el-option value="1" label="普通讲师"/>
+          <el-option value="2" label="高级讲师"/>
+          <el-option value="3" label="首席讲师"/>
         </el-select>
       </el-form-item>
 
@@ -55,23 +56,24 @@
       <el-table-column type="selection" />
 
       <el-table-column
-        label="#"
+        label="序号"
         width="50">
         <template slot-scope="scope">
           {{ (page - 1) * limit + scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="名称" width="80" />
-      <el-table-column prop="level" label="头衔" >
+      <el-table-column prop="name" label="姓名" width="80" />
+      <el-table-column prop="level" label="级别" width="100" >
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.level === 1" type="success">高级讲师</el-tag>
-          <el-tag v-if="scope.row.level === 2" >首席讲师</el-tag>
+          <el-tag v-if="scope.row.level === 1" >普通讲师</el-tag>
+          <el-tag v-if="scope.row.level === 2" type="success">高级讲师</el-tag>
+          <el-tag v-if="scope.row.level === 3" type="danger">首席讲师</el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="intro" label="资历" />
+      <el-table-column prop="intro" label="简介" />
       <el-table-column prop="sort" label="排序" width="60" />
       <el-table-column prop="joinDate" label="入驻时间" width="160" />
-      <el-table-column label="操作" width="200">
+      <el-table-column label="操作" width="160">
         <template slot-scope="scope">
           <router-link :to="'/teacher/edit/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
