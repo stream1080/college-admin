@@ -29,11 +29,11 @@ export const constantRouterMap = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
+      name: 'Dashboard',
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: '慕课学院', icon: 'dasboard' }
     }]
   },
 
@@ -123,6 +123,80 @@ export const constantRouterMap = [
         component: () => import('@/views/course/form'),
         meta: { title: '编辑课程大纲' },
         hidden: true
+      }
+    ]
+  },
+
+  // 内容管理
+  {
+    path: '/ad',
+    component: Layout,
+    redirect: '/ad/list',
+    name: 'Ad',
+    meta: { title: '内容管理' },
+    children: [
+      {
+        path: 'list',
+        name: 'AdList',
+        component: () => import('@/views/ad/list'),
+        meta: { title: '广告推荐' }
+      },
+      {
+        path: 'create',
+        name: 'AdCreate',
+        component: () => import('@/views/ad/form'),
+        meta: { title: '添加广告推荐' },
+        hidden: true
+      },
+      {
+        path: 'edit/:id',
+        name: 'AdEdit',
+        component: () => import('@/views/ad/form'),
+        meta: { title: '编辑广告推荐' },
+        hidden: true
+      },
+
+      {
+        path: 'type-list',
+        name: 'AdTypeList',
+        component: () => import('@/views/adType/list'),
+        meta: { title: '推荐位' }
+      },
+      {
+        path: 'type-create',
+        name: 'AdTypeCreate',
+        component: () => import('@/views/adType/form'),
+        meta: { title: '添加推荐位' },
+        hidden: true
+      },
+      {
+        path: 'type-edit/:id',
+        name: 'AdTypeEdit',
+        component: () => import('@/views/adType/form'),
+        meta: { title: '编辑推荐位' },
+        hidden: true
+      }
+    ]
+  },
+
+  {
+    path: '/statistics',
+    component: Layout,
+    redirect: '/statistics/create',
+    name: 'Statistics',
+    meta: { title: '统计分析' },
+    children: [
+      {
+        path: 'create',
+        name: 'StatisticsCreate',
+        component: () => import('@/views/statistics/create'),
+        meta: { title: '生成统计' }
+      },
+      {
+        path: 'chart',
+        name: 'StatisticsChart',
+        component: () => import('@/views/statistics/chart'),
+        meta: { title: '统计图表' }
       }
     ]
   },

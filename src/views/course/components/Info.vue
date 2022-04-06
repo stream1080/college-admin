@@ -62,8 +62,8 @@
           :on-success="handleCoverSuccess"
           :before-upload="beforeCoverUpload"
           :on-error="handleCoverError"
-          class="cover-uploader"
-          action="http://localhost:8120/admin/oss/file/upload?module=cover">
+          :action="BASE_API+'/admin/oss/file/upload?module=cover'"
+          class="cover-uploader">
           <img v-if="courseInfo.cover" :src="courseInfo.cover">
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>
@@ -107,7 +107,8 @@ export default {
 
       teacherList: [], // 讲师列表
       subjectList: [], // 一级分类
-      subjectLevelTwoList: [] // 二级分类
+      subjectLevelTwoList: [], // 二级分类
+      BASE_API: process.env.BASE_API
     }
   },
 

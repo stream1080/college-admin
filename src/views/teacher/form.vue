@@ -21,11 +21,11 @@
           <el-option :value="2" label="首席讲师"/>
         </el-select>
       </el-form-item>
-      <el-form-item label="讲师资历">
-        <el-input v-model="teacher.career"/>
-      </el-form-item>
       <el-form-item label="讲师简介">
-        <el-input v-model="teacher.intro" :rows="10" type="textarea"/>
+        <el-input v-model="teacher.intro"/>
+      </el-form-item>
+      <el-form-item label="讲师资历">
+        <el-input v-model="teacher.career" :rows="10" type="textarea"/>
       </el-form-item>
 
       <!-- 讲师头像 -->
@@ -35,8 +35,8 @@
           :on-success="handleAvatarSuccess"
           :on-error="handleAvatarError"
           :before-upload="beforeAvatarUpload"
-          class="avatar-uploader"
-          action="http://localhost:8120/admin/oss/file/upload?module=avatar">
+          :action="BASE_API+'/admin/oss/file/upload?module=avatar'"
+          class="avatar-uploader">
           <img v-if="teacher.avatar" :src="teacher.avatar" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>
@@ -61,7 +61,8 @@ export default {
         sort: 0,
         level: 1
       },
-      saveBtnDisabled: false // 默认按钮可用
+      saveBtnDisabled: false, // 默认按钮可用
+      BASE_API: process.env.BASE_API
     }
   },
 
