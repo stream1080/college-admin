@@ -37,6 +37,36 @@ export const constantRouterMap = [
     }]
   },
 
+    // 会员管理
+    {
+      path: '/member',
+      component: Layout,
+      redirect: '/member/list',
+      name: 'Member',
+      meta: { title: '会员管理' },
+      children: [
+        {
+          path: 'list',
+          name: 'MemberList',
+          component: () => import('@/views/member/list'),
+          meta: { title: '会员管理' }
+        },
+        {
+          path: 'edit/:id',
+          name: 'MemberEdit',
+          component: () => import('@/views/member/form'),
+          meta: { title: '编辑会员' },
+          hidden: true
+        },
+        // {
+        //   path: 'create',
+        //   name: 'MemberCreate',
+        //   component: () => import('@/views/member/form'),
+        //   meta: { title: '添加会员' }
+        // },
+      ]
+    },
+
   // 讲师管理
   {
     path: '/teacher',
