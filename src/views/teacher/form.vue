@@ -17,7 +17,8 @@
             数据类型一定要和取出的json中的一致，否则没法回填
             因此，这里value使用动态绑定的值，保证其数据类型是number
             -->
-          <el-option :value="1" label="高级讲师"/>
+          <el-option :value="1" label="普通讲师"/>
+          <el-option :value="2" label="高级讲师"/>
           <el-option :value="2" label="首席讲师"/>
         </el-select>
       </el-form-item>
@@ -29,7 +30,7 @@
       </el-form-item>
 
       <!-- 讲师头像 -->
-      <el-form-item label="讲师简介">
+      <el-form-item label="讲师头像">
         <el-upload
           :show-file-list="false"
           :on-success="handleAvatarSuccess"

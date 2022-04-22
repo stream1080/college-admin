@@ -57,13 +57,13 @@
 
       <el-table-column
         label="序号"
-        width="50">
+        width="50" align="center">
         <template slot-scope="scope">
           {{ (page - 1) * limit + scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="姓名" width="80" />
-      <el-table-column prop="level" label="级别" width="100" >
+      <el-table-column prop="name" label="姓名" width="80" align="center"/>
+      <el-table-column prop="level" label="级别" width="100" align="center" >
         <template slot-scope="scope">
           <el-tag v-if="scope.row.level === 1" >普通讲师</el-tag>
           <el-tag v-if="scope.row.level === 2" type="success">高级讲师</el-tag>
@@ -71,9 +71,13 @@
         </template>
       </el-table-column>
       <el-table-column prop="intro" label="简介" />
-      <el-table-column prop="sort" label="排序" width="60" />
-      <el-table-column prop="joinDate" label="入驻时间" width="160" />
-      <el-table-column label="操作" width="160">
+      <el-table-column prop="sort" label="排序" width="60" align="center"/>
+      <el-table-column label="入驻时间" width="160" align="center">
+        <template slot-scope="scope">
+          {{ scope.row.joinDate.substr(0, 10) }}
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="160" align="center">
         <template slot-scope="scope">
           <router-link :to="'/teacher/edit/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>

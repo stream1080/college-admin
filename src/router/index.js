@@ -67,29 +67,6 @@ export const constantRouterMap = [
     ]
   },
 
-  // 课程分类管理
-  {
-    path: '/subject',
-    component: Layout,
-    redirect: '/subject/list',
-    name: 'Subject',
-    meta: { title: '课程分类管理' },
-    children: [
-      {
-        path: 'list',
-        name: 'SubjectList',
-        component: () => import('@/views/subject/list'),
-        meta: { title: '课程分类列表' }
-      },
-      {
-        path: 'import',
-        name: 'SubjectImport',
-        component: () => import('@/views/subject/import'),
-        meta: { title: '导入课程分类' }
-      }
-    ]
-  },
-
   // 课程管理
   {
     path: '/course',
@@ -160,7 +137,7 @@ export const constantRouterMap = [
         path: 'type-list',
         name: 'AdTypeList',
         component: () => import('@/views/adType/list'),
-        meta: { title: '推荐位' }
+        meta: { title: '广告位管理' }
       },
       {
         path: 'type-create',
@@ -179,27 +156,50 @@ export const constantRouterMap = [
     ]
   },
 
+  // 课程分类管理
   {
-    path: '/statistics',
+    path: '/subject',
     component: Layout,
-    redirect: '/statistics/create',
-    name: 'Statistics',
-    meta: { title: '统计分析' },
+    redirect: '/subject/list',
+    name: 'Subject',
+    meta: { title: '分类管理' },
     children: [
       {
-        path: 'create',
-        name: 'StatisticsCreate',
-        component: () => import('@/views/statistics/create'),
-        meta: { title: '生成统计' }
+        path: 'list',
+        name: 'SubjectList',
+        component: () => import('@/views/subject/list'),
+        meta: { title: '课程分类列表' }
       },
       {
-        path: 'chart',
-        name: 'StatisticsChart',
-        component: () => import('@/views/statistics/chart'),
-        meta: { title: '统计图表' }
+        path: 'import',
+        name: 'SubjectImport',
+        component: () => import('@/views/subject/import'),
+        meta: { title: '导入课程分类' }
       }
     ]
   },
+
+  // {
+  //   path: '/statistics',
+  //   component: Layout,
+  //   redirect: '/statistics/create',
+  //   name: 'Statistics',
+  //   meta: { title: '统计分析' },
+  //   children: [
+  //     {
+  //       path: 'create',
+  //       name: 'StatisticsCreate',
+  //       component: () => import('@/views/statistics/create'),
+  //       meta: { title: '生成统计' }
+  //     },
+  //     {
+  //       path: 'chart',
+  //       name: 'StatisticsChart',
+  //       component: () => import('@/views/statistics/chart'),
+  //       meta: { title: '统计图表' }
+  //     }
+  //   ]
+  // },
 
   { path: '*', redirect: '/404', hidden: true }
 ]

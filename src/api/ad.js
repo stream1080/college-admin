@@ -30,7 +30,7 @@ export default {
 
   getById(id) {
     return request({
-      baseURL: 'http://127.0.0.1:8140',
+      // baseURL: 'http://127.0.0.1:8140',
       url: `/admin/cms/ad/get/${id}`,
       method: 'get'
     })
@@ -38,7 +38,7 @@ export default {
 
   updateById(ad) {
     return request({
-      baseURL: 'http://127.0.0.1:8140',
+      // baseURL: 'http://127.0.0.1:8140',
       url: '/admin/cms/ad/update',
       method: 'put',
       data: ad
