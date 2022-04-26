@@ -10,7 +10,7 @@
           :fetch-suggestions="querySearch"
           :trigger-on-focus="false"
           class="inline-input"
-          placeholder="讲师"
+          placeholder="讲师姓名"
           value-key="name" />
       </el-form-item>
 

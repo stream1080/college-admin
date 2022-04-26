@@ -6,10 +6,10 @@
       <el-form-item>
         <!-- <el-input v-model="searchObj.name" placeholder="讲师"/> -->
         <el-input
-          v-model="searchObj.nikename"
+          v-model="searchObj.nickname"
           class="inline-input"
           placeholder="会员昵称"
-          value-key="nikename" />
+          value-key="nickname" />
       </el-form-item>
 
       <el-form-item>
